@@ -110,3 +110,24 @@ train %>%
   aes(x = Age, y = Annual_Premium, color = Response) +
   geom_histogram(stat='identity') +
   ggtitle("Por Edad y Monto acumulado de poliza")
+
+
+#Preparando para la matrix de correlación
+
+train$GenderDummy =  ifelse(train$Gender == "Male", 1 , 0)
+
+table(train$Vehicle_Age)
+
+#   < 1 Year    0
+#   1-2 Year    1 
+#   > 2 Years   2
+train$Vehicle_AgeDummy =  ifelse (train$Vehicle_Age == "< 1 Year",0, ifelse(train$Vehicle_Age == "> 2 Years", 2 , 1))
+
+
+train$VehiculeDamage_Dummy =  ifelse(train$Vehicle_Damage == "Yes", 1 , 0)
+
+  
+
+  
+
+
